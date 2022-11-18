@@ -20,7 +20,7 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Create a keyspace and tables</div>
+<div class="step-title">Use fqltool to review full query logs</div>
 
 ✅ Start the CQL shell:
 ```

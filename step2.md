@@ -20,7 +20,7 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Syntax</div>
+<div class="step-title">Create schema and perform queries</div>
 
 To create a materialized view, Cassandra Query Language provides the `CREATE MATERIALIZED VIEW` statement with the following simplified syntax:
 
