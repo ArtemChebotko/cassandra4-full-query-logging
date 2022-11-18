@@ -4,14 +4,15 @@ tasks:
       printf 'export PATH="$HOME%s:$PATH"\n' "/.astra/cli" >> $HOME/.bashrc
       printf 'unset JAVA_TOOL_OPTIONS\n' >> $HOME/.bashrc
       curl -Ls "https://dtsx.io/get-astra-cli" | bash >> ./install.log
+      printf 'export PATH="$HOME%s:$PATH"\n' "/apache-cassandra/bin" >> $HOME/.bashrc
+      printf 'export PATH="$HOME%s:$PATH"\n' "/apache-cassandra/tools/bin" >> $HOME/.bashrc
     init: |
-      docker pull cassandra:4.0
+      wget https://archive.apache.org/dist/cassandra/4.0.5/apache-cassandra-4.0.5-bin.tar.gz
       pip install -U cqlsh
     command: | 
-      docker run -p 9042:9042 -d \
-                 --name Cassandra \
-                 -v ${PWD}/config/cassandra.yaml:/etc/cassandra/cassandra.yaml \
-                 -v ${PWD}/config/cassandra-rackdc.properties:/etc/cassandra/cassandra-rackdc.properties cassandra:4.0
+      tar -xzf apache-cassandra-4.0.5-bin.tar.gz
+      rm apache-cassandra-4.0.5-bin.tar.gz
+      mv apache-cassandra-4.0.5 $HOME/apache-cassandra
       source /home/gitpod/.astra/cli/astra-init.sh
 ports:
   - port: 9042
