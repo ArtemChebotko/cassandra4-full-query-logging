@@ -22,18 +22,28 @@
 
 <div class="step-title">Enable full query logging via nodetool</div>
 
-Each table only supports a limited set of queries based on its primary key definition. 
-To support additional queries, the most generic and efficient solution is to duplicate the same data into 
-a new table with a different primary key. This process is frequently referred to as data *denormalization* and 
-data *duplication*. The drawback is that now you have to do multiple inserts, updates and deletes 
-to maintain the same data stored in multiple places. You may even need to use atomic batches in some cases. 
+In this step, you will enable full query logging via `nodetool`.
 
-To remove the burden of keeping multiple tables in sync from a developer, Cassandra supports 
-an experimental feature called *materialized views*. A *materialized view* is a read-only 
-table that automatically duplicates, persists and maintains a subset of data from a *base table*. Any change to data 
-in a base table is automatically propagated to every view associated with this table.   
+We've already started a single node Cassandra cluster for you in the background. When the command prompt appears in the terminal, the node is initialized and ready to go.
 
-Materialized views are great for convenience but you should also be aware of their limitations, which we discuss later in this presentation.
+✅ First, let's create a directory to store our full query log files:
+```
+mkdir /tmp/fqllogs
+```
+
+✅ Now you can connect to the node using `nodetool` and enable full query logging, using the directory we just created as the path:
+```
+nodetool enablefullquerylog --path /tmp/fqllogs
+```
+
+✅ To get a listing of the other options available on this command, execute the following:
+```
+nodetool help enablefullquerylog
+```
+
+## Summary
+
+In this step, you enabled full query logging dynamically on a running Cassandra node using `nodetool` and learned about the available options on the `enablefullquerylog` command.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

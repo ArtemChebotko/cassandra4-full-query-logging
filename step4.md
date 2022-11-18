@@ -56,6 +56,22 @@ SELECT * FROM users WHERE email = 'joe@datastax.com';
 SELECT * FROM users_by_name WHERE name = 'Joseph';
 ```
 
+<pre class="non-executable-code">
+CREATE MATERIALIZED VIEW [ IF NOT EXISTS ] 
+[keyspace_name.] view_name AS 
+  SELECT * | column_name [ , ... ]
+  FROM [keyspace_name.] base_table_name
+  WHERE primary_key_column_name IS NOT NULL [ AND ... ] 
+PRIMARY KEY ( 
+  ( partition_key_column_name  [ , ... ] )
+  [ clustering_key_column_name [ , ... ] ]
+)  
+[ WITH CLUSTERING ORDER BY 
+  ( clustering_key_column_name ASC|DESC [ , ... ] )
+];
+</pre>
+
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step3"}]'

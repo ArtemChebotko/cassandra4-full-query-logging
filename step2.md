@@ -22,35 +22,62 @@
 
 <div class="step-title">Create schema and perform queries</div>
 
-To create a materialized view, Cassandra Query Language provides the `CREATE MATERIALIZED VIEW` statement with the following simplified syntax:
+In this step, you will connect using `cqlsh` and create a keyspace and table, perform some queries, and verify that full query logs are being created.
 
-<pre class="non-executable-code">
-CREATE MATERIALIZED VIEW [ IF NOT EXISTS ] 
-[keyspace_name.] view_name AS 
-  SELECT * | column_name [ , ... ]
-  FROM [keyspace_name.] base_table_name
-  WHERE primary_key_column_name IS NOT NULL [ AND ... ] 
-PRIMARY KEY ( 
-  ( partition_key_column_name  [ , ... ] )
-  [ clustering_key_column_name [ , ... ] ]
-)  
-[ WITH CLUSTERING ORDER BY 
-  ( clustering_key_column_name ASC|DESC [ , ... ] )
-];
-</pre>
+✅ Start the CQL Shell (`cqlsh`) so you can issue CQL commands:
+```
+cqlsh
+```
 
-First, notice that a view is created within an existing keyspace. If a keyspace name is omitted, the current working keyspace is used.
+✅ Create the `ks_full_query_logging` keyspace:
+```
+CREATE KEYSPACE ks_full_query_logging
+WITH replication = {
+  'class': 'NetworkTopologyStrategy', 
+  'DC-Houston': 1 };
 
-Second, what gets persisted into a view is defined by a `SELECT` statement.
+USE ks_full_query_logging;
+```
 
-Finally, a view primary key and an optional clustering order are defined simlarly to the respective `CREATE TABLE` definitions.
+✅ Create the `movie_metadata` table:
+```
+CREATE TABLE movie_metadata(
+  imdb_id        text,
+  overview       text,
+  release_date   text,
+  title          text,
+  average_rating float,
+  PRIMARY KEY(imdb_id));
+```
 
-Most importantly, the following restrictions apply to any materialized view definition:
-- A view and a base table must belong to the same keyspace;
-- No base table static column can be included in a view;
-- All base table primary key columns must become materialized view primary key columns;
-- At most one base table non-primary key column can become a materialized view primary key column;
-- All view primary key columns must be restricted to not allow nulls.
+✅ Insert a row into the `movie_metadata` table:
+```
+INSERT INTO movie_metadata (imdb_id, overview, release_date, title, average_rating) 
+VALUES('tt0114709', 'Led by Woody, Andy''s toys live happily in his room until Andy''s birthday brings Buzz Lightyear onto the scene. Afraid of losing his place in Andy''s heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from their owner, the duo eventually learns to put aside their differences.', '10/30/95', 'Toy Story', 7.7);
+```
+
+✅ Now let's do a `SELECT`:
+```
+SELECT * FROM movie_metadata WHERE imdb_id = 'tt0114709';
+```
+
+You should see the row you just inserted.
+
+✅ Type `exit` to close `cqlsh`.
+```
+exit
+```
+
+✅ Now, let's check the contents of our log directory to see if anything has been created:
+```
+ls /tmp/fqllogs
+```
+
+You'll see two files, a file with a date timestamp in the name, and another file which provides a directory of all the dated files that have been written. You can try opening these files if you wish, but the contents won't make a lot of sense since they are binary data. Don't worry, Cassandra has a way to read this data.
+
+## Summary
+
+In this step, you have created the `ks_full_query_logging` keyspace and the `movie_metadata` table, and performed some queries, and verified that full query logs were created.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
