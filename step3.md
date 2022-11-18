@@ -39,8 +39,6 @@ fqltool help dump
 fqltool help 
 ```
 
-## Summary
-
 In this step, you used `fqltool` to view the contents of a full query log.
 
 <!-- NAVIGATION -->

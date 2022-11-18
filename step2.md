@@ -75,8 +75,6 @@ ls /tmp/fqllogs
 
 You'll see two files, a file with a date timestamp in the name, and another file which provides a directory of all the dated files that have been written. You can try opening these files if you wish, but the contents won't make a lot of sense since they are binary data. Don't worry, Cassandra has a way to read this data.
 
-## Summary
-
 In this step, you have created the `ks_full_query_logging` keyspace and the `movie_metadata` table, and performed some queries, and verified that full query logs were created.
 
 <!-- NAVIGATION -->

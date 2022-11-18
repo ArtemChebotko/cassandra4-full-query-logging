@@ -41,8 +41,6 @@ nodetool enablefullquerylog --path /tmp/fqllogs
 nodetool help enablefullquerylog
 ```
 
-## Summary
-
 In this step, you enabled full query logging dynamically on a running Cassandra node using `nodetool` and learned about the available options on the `enablefullquerylog` command.
 
 <!-- NAVIGATION -->
