@@ -13,8 +13,8 @@ tasks:
       tar -xzf apache-cassandra-4.0.5-bin.tar.gz
       rm apache-cassandra-4.0.5-bin.tar.gz
       mv apache-cassandra-4.0.5 $HOME/apache-cassandra
-      mv assets/cassandra-rackdc.properties $HOME/apache-cassandra/conf/cassandra-rackdc.properties
-      mv assets/cassandra.yaml $HOME/apache-cassandra/conf/cassandra.yaml      
+      mv config/cassandra-rackdc.properties $HOME/apache-cassandra/conf/cassandra-rackdc.properties
+      mv config/cassandra.yaml $HOME/apache-cassandra/conf/cassandra.yaml      
       source /home/gitpod/.astra/cli/astra-init.sh
       $HOME/apache-cassandra/bin/cassandra
 ports:
