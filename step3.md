@@ -22,59 +22,26 @@
 
 <div class="step-title">Use fqltool to review full query logs</div>
 
-✅ Start the CQL shell:
+In this step, you will use `fqltool` to read the contents of a full query log. 
+
+✅ Let's use the `fqltool dump` command, pointing it to the directory we set up previously to store our full query logs:
 ```
-cqlsh
+fqltool dump /tmp/fqllogs
 ```
 
-✅ Create the keyspace:
+✅ To see more about the different options for the `dump` command, use the help:
 ```
-CREATE KEYSPACE ks_materialized_views
-WITH replication = {
-  'class': 'NetworkTopologyStrategy', 
-  'DC-Houston': 1 };
+fqltool help dump
 ```
 
-✅ Create and populate the tables:
+✅ To see what other `cqltool` commands are allowed, try:
 ```
-USE ks_materialized_views;
-
-CREATE TABLE users (
-  email TEXT,
-  name TEXT,
-  age INT,
-  date_joined DATE,
-  PRIMARY KEY ((email))
-);
-INSERT INTO users (email, name, age, date_joined) 
-VALUES ('joe@datastax.com', 'Joe', 25, '2020-01-01');
-INSERT INTO users (email, name, age, date_joined) 
-VALUES ('jen@datastax.com', 'Jen', 27, '2020-01-01');
-INSERT INTO users (email, name, age, date_joined) 
-VALUES ('jim@datastax.com', 'Jim', 31, '2020-05-07');
-SELECT * FROM users;
-
-CREATE TABLE movies_by_genre (
-  genre TEXT,
-  title TEXT,
-  year INT,
-  duration INT,
-  avg_rating FLOAT,
-  country TEXT,
-  PRIMARY KEY ((genre), title, year)
-);
-INSERT INTO movies_by_genre (genre, title, year, duration, avg_rating, country) 
-VALUES ('Fantasy', 'Alice in Wonderland', 2010, 108, 8.33, 'USA');
-INSERT INTO movies_by_genre (genre, title, year, duration, avg_rating, country) 
-VALUES ('Adventure', 'Alice in Wonderland', 2010, 108, 8.33, 'USA');
-INSERT INTO movies_by_genre (genre, title, year, duration, avg_rating, country) 
-VALUES ('Adventure', 'The Extraordinary Adventures of Adele Blanc-Sec', 2010, 107, 6.30, 'France');
-INSERT INTO movies_by_genre (genre, title, year, duration, avg_rating, country) 
-VALUES ('Action', 'The Extraordinary Adventures of Adele Blanc-Sec', 2010, 107, 6.30, 'France');
-INSERT INTO movies_by_genre (genre, title, year, duration, avg_rating, country) 
-VALUES ('Adventure', 'How to Train Your Dragon', 2010, 98, 8.10, 'USA');
-SELECT * FROM movies_by_genre;
+fqltool help 
 ```
+
+## Summary
+
+In this step, you used `fqltool` to view the contents of a full query log.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
