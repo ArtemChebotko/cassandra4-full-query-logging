@@ -1,6 +1,6 @@
 # Full Query Logging
 
-## Learn how and when to use full query logging in a Cassandra NoSQL database
+## Learn how to use full query logging in Apache Cassandra®
 
 Cassandra 4.x full query logging enables you to get the exact CQL query strings used by your client applications. This information can be used for:
 - Analyzing poorly performing queries 
@@ -9,7 +9,7 @@ Cassandra 4.x full query logging enables you to get the exact CQL query strings 
 - Troubleshooting/Debugging
 
 **In this hands-on lab, you will:**
-- Enable and disable full query logging statically (in `cassandra.yaml`) and dynamically (using *nodetool*).
+- Enable and disable full query logging statically (in `cassandra.yaml`) and dynamically (using `nodetool`)
 - Learn features of the full query logging tool `fqltool`
 - Read and interpret full query logs
 

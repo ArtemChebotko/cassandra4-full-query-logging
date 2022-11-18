@@ -12,8 +12,8 @@
  <a href='command:katapod.loadPage?[{"step":"step3"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 4 of 8</span>
- <a href='command:katapod.loadPage?[{"step":"step5"}]' 
+<span class="step-count"> Step 4 of 4</span>
+ <a href='command:katapod.loadPage?[{"step":"finish"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -61,7 +61,7 @@ SELECT * FROM users_by_name WHERE name = 'Joseph';
  <a href='command:katapod.loadPage?[{"step":"step3"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step5"}]'
+ <a href='command:katapod.loadPage?[{"step":"finish"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
