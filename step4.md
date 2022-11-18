@@ -22,7 +22,7 @@
 
 <div class="step-title">Configure full query logging via cassandra.yaml</div>
 
-Our first task is to create a materialized view with name `users_by_name` that will allow retrieving 
+1Our first task is to create a materialized view with name `users_by_name` that will allow retrieving 
 users based on their names like in this query:
 
 <pre class="non-executable-code">
