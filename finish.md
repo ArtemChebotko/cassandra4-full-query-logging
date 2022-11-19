@@ -32,6 +32,7 @@
         <ul>
               <li><span class="resource"><a href="https://www.datastax.com/learn/cassandra-fundamentals" target="_blank">Cassandra Fundamentals</a></span></li>        
               <li><span class="resource"><a href="https://www.datastax.com/learn/data-modeling-by-example" target="_blank">Data Modeling by Example</a></span></li>
+              <li><span class="resource"><a href="https://www.datastax.com/learn/whats-new-for-cassandra-4" target="_blank">What’s New in Cassandra 4.0?</a></span></li>
         </ul>
       </div>
      </div>

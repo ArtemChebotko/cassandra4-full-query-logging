@@ -53,7 +53,7 @@ Here are the configurable properties for full query logging:
 - `archive_command`: Optionally, provides a command that will be used to archive full query log files before deletion.
 - `max_archive_retries`: Sets a maximum number of times a failed archive command will be retried (defaults to 10).
 
-For the new configuration settings in `cassandra.yaml` to take effect, Cassandra must be restarted.
+For the new configuration settings in `cassandra.yaml` to take effect, you will need to save the file and restart Cassandra.
 
 In this step, you learned how to enable full query logging in the `cassandra.yaml` file and explored the configurable properties of full query logging. 
 
