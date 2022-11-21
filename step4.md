@@ -24,7 +24,7 @@
 
 Previously, you enabled full query logging for a Cassandra node using `nodetool`, but the logging will not remain enabled when the node is restarted unless you edit the `cassandra.yaml` file. In this step, you will learn how to configure some of the properties full query logging. 
 
-✅ Open open the `cassandra.yaml` file in the editor:
+✅ Open the `cassandra.yaml` file in the editor:
 ```
 nano $HOME/apache-cassandra/conf/cassandra.yaml
 ```
