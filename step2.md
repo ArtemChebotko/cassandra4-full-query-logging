@@ -63,7 +63,7 @@ SELECT * FROM movie_metadata WHERE imdb_id = 'tt0114709';
 
 You should see the row you just inserted.
 
-✅ Type `exit` to close `cqlsh`.
+✅ Type `exit` to close `cqlsh`:
 ```
 exit
 ```
